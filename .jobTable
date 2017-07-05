@@ -1,0 +1,12 @@
+#tabC,9999
+tabS_m,9999,0
+tabS_b,9999,0
+#cam,7,0
+#rcam,7,0
+sens,1,0
+#recC,30,0
+recS_m,30,0
+recS_b,30,15
+mainloop,60,0
+#spool_sync,1,0
+drive_connector,1,0
