@@ -7,5 +7,4 @@ rcam,10
 sens2,1
 recC,30
 #recS,30
-#mainloop,60
 spool_sync,1
