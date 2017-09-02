@@ -17,7 +17,7 @@
     function ExecRemoteCmd($service) {
 
 	openlog("ExecRemoteCmd", LOG_ODELAY | LOG_PERROR, LOG_USER);
-	include_once 'driveLibraryV3.php';
+	include_once '/home/pi/projects/driveLibrary/driveLibraryV3.php';
 
 	$work_dir = "/var/www/work/";
 	$spool_dir = "/var/www/_spool/";
