@@ -11,7 +11,7 @@
 
     function drive_connector() {
 
-	include_once "driveLibraryV3.php";
+	include_once "/home/pi/projects/driveLibrary/driveLibraryV3.php";
 
 	$work_dir = "/var/www/work/";
 	$home_dir = "/var/www/html/monitorSystem/";
