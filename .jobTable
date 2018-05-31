@@ -5,6 +5,8 @@ tabS_b,9999,0
 #rcam,7,0
 sens,1,0
 #recC,30,0
+# upload sens_log csv file
+#upSdata,5,1
 recS_m,30,0
 recS_b,30,15
 #spool_sync,1,0

@@ -1,4 +1,33 @@
 <?php
+//    recordSensData();
+
+    function PostToGAE($sensData)
+    {
+	date_default_timezone_set("Asia/Tokyo");
+
+	$postData["sensData[timestamp]"] = date(DATE_ATOM);
+
+	foreach ($sensData as $sensorName => $value) {
+	    $postData["sensData[".$sensorName."]"] = $value;
+	}
+
+	$param = [
+		CURLOPT_URL => "http://jebaxxmonitor.appspot.com/postData",
+		CURLOPT_RETURNTRANSFER => TRUE,
+		CURLOPT_POST => TRUE,
+		CURLOPT_POSTFIELDS => http_build_query($postData),
+	];
+
+	$cc = curl_init();
+	if (!(curl_setopt_array($cc, $param))) {
+		syslog(LOG_DEBUG, "curl_setopt_array");
+	}
+
+	if (!($response = curl_exec($cc))) {
+		syslog(LOG_DEBUG, "curl_exec error >>>".$response);
+	}
+	curl_close($cc);
+    }
 
     function recordSensData() {
 
@@ -27,6 +56,18 @@
 		$lf   = trim($illum[0]);
 		$lir  = trim($illum[1]);
 		$lv   = trim($illum[2]);
+
+		// create sensData to upload senser record
+		//
+		$sensData['T-cpu-mavis'] = $tmpS;
+		$sensData['T-ADT7410-01'] = $tmpA;
+		$sensData['T-BMP180-01'] = $tmpB;
+		$sensData['P-BMP180-01'] = $press;
+		$sensData['I-TSL2561f-01'] = $lf;
+		$sensData['I-TSL2561v-01'] = $lv;
+		$sensData['I-TSL2561ir-01'] = $lir;
+		PostToGAE($sensData);
+		///////////////////////////////////////////
 
 		$line = $timestamp.', '.$time.',';
 		$line .= sprintf("%6.2f, ", $tmpS);

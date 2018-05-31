@@ -101,6 +101,12 @@
 		}
 	    }
 
+	    if (array_key_exists("upSdata", $jobTable)) {
+		if ($counter % $jobTable["upSdata"][0] == $jobTable["upSdata"][1]) {
+			include_once "uploadCsv.php";
+		}
+	    }
+
 	    if (array_key_exists("recC",$jobTable)) {
 		if ($counter % $jobTable['recC'][0] == $jobTable["recC"][1]) {
 			include_once "tabulateCamLog.php";
