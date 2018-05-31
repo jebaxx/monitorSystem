@@ -4,7 +4,7 @@
 	    $spool_dir = "/var/www/_spool/";
 
 	    // _spool directory
-	    $target_opt = "'\\\\192.168.0.50/work' 'xxxxx' -U pi -D '_spool' -c ";
+	    $target_opt = "'\\\\192.168.0.50/work' 'ohayou' -U pi -D '_spool' -c ";
 
 	    sleep(10);
 
